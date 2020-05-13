@@ -1,0 +1,5 @@
+.popup-img__background {
+    width: 80vw;
+    height: 80vh;
+    object-fit: cover;
+}
