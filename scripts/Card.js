@@ -21,21 +21,27 @@ class Card{
 
   setEventListeners () {
     this.likeIcon.addEventListener('click', this.like.bind(this));
+    this.likeIcon.addEventListener('touchstart', this.like.bind(this));
     this.deleteIcon.addEventListener('click', this.remove.bind(this));
+    this.deleteIcon.addEventListener('touchstart', this.remove.bind(this));
     this.picture.addEventListener('click', this.openPopup)
   }
 
   removeEventListeners () {
     this.likeIcon.removeEventListener('click', this.like.bind(this));
+    this.likeIcon.removeEventListener('touchstart', this.like.bind(this));
     this.deleteIcon.removeEventListener('click', this.remove.bind(this));
+    this.deleteIcon.addEventListener('touchstart', this.remove.bind(this));
     this.picture.removeEventListener('click', this.openPopup)
   }
 
-  like () {
+  like (event) {
+    event.preventDefault()
     this.likeIcon.classList.toggle('place-card__like-icon_liked')
   }
 
-  remove () {
+  remove (event) {
+    event.preventDefault()
     this.cardElement.remove()
     this.removeEventListeners()
   }

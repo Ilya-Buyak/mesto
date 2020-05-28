@@ -11,6 +11,7 @@ class Popup {
   setEventListeners () {
     document.addEventListener('keyup', this.closeByEsc.bind(this))
     this.popup.querySelector('.popup__close').addEventListener('click', this.close.bind(this));
+    this.popup.querySelector('.popup__close').addEventListener('touchstart', this.close.bind(this));
   }
 
   open () {
