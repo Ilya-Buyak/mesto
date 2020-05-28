@@ -10,8 +10,8 @@ class Popup {
   }
   setEventListeners () {
     document.addEventListener('keyup', this.closeByEsc.bind(this))
-    this.popup.querySelector('.popup__close').addEventListener('click', this.close.bind(this));
-    this.popup.querySelector('.popup__close').addEventListener('touchend', this.close.bind(this));
+    this.popup.querySelector('.popup__close').addEventListener('click', this.close.bind(this),false);
+    this.popup.querySelector('.popup__close').addEventListener('touchend', this.close.bind(this),false);
   }
 
   open () {
@@ -19,7 +19,8 @@ class Popup {
     this.setEventListeners()
   }
 
-  close () {
+  close (event) {
+    event.preventDefault()
     this.popup.classList.remove('popup_is-opened')
   }
 }

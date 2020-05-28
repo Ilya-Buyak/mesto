@@ -20,8 +20,8 @@ class Card{
   }
 
   setEventListeners () {
-    this.likeIcon.addEventListener('click', this.like.bind(this));
-    this.likeIcon.addEventListener('touchend', this.like.bind(this));
+    this.likeIcon.addEventListener('click', this.like.bind(this),false);
+    this.likeIcon.addEventListener('touchend', this.like.bind(this),false);
     this.deleteIcon.addEventListener('click', this.remove.bind(this));
     this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
     this.picture.addEventListener('click', this.openPopup)
