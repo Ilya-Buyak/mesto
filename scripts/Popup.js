@@ -22,8 +22,7 @@ class Popup {
     this.setEventListeners()
   }
 
-  close (event) {
-    event.preventDefault()
+  close () {
     this.popup.classList.remove('popup_is-opened')
   }
 }
