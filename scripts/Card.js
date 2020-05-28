@@ -21,17 +21,17 @@ class Card{
 
   setEventListeners () {
     this.likeIcon.addEventListener('click', this.like.bind(this));
-    this.likeIcon.addEventListener('touchstart', this.like.bind(this));
+    this.likeIcon.addEventListener('touchend', this.like.bind(this));
     this.deleteIcon.addEventListener('click', this.remove.bind(this));
-    this.deleteIcon.addEventListener('touchstart', this.remove.bind(this));
+    this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
     this.picture.addEventListener('click', this.openPopup)
   }
 
   removeEventListeners () {
     this.likeIcon.removeEventListener('click', this.like.bind(this));
-    this.likeIcon.removeEventListener('touchstart', this.like.bind(this));
+    this.likeIcon.removeEventListener('touchend', this.like.bind(this));
     this.deleteIcon.removeEventListener('click', this.remove.bind(this));
-    this.deleteIcon.addEventListener('touchstart', this.remove.bind(this));
+    this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
     this.picture.removeEventListener('click', this.openPopup)
   }
 
