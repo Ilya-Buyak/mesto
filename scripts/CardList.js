@@ -5,10 +5,10 @@ class CardList {
     this.card = card;
   }
 
-  addCard = (elem) => {
+  addCard (elem) {
     this.container.appendChild(this.card(elem))
   }
-  render = () => {
+  render ()  {
     this.cards.forEach((elem) => {
       this.addCard(elem)
     })

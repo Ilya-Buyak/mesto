@@ -4,12 +4,12 @@ class UserInfo {
     this.job = job
   }
 
-  setUserInfo = (inputs) => {
+  setUserInfo (inputs) {
     this.name = inputs.name;
     this.job = inputs.job;
   }
 
-  updateUserInfo = () => {
+  updateUserInfo () {
     document.querySelector('.user-info__name').textContent = this.name;
     document.querySelector('.user-info__job').textContent = this.job;
   }

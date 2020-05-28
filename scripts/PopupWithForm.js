@@ -6,19 +6,19 @@ class PopupWithForm extends Popup {
     this.form = this.popup.querySelector('form')
   }
 
-  createEditUserForm = () => {
+  createEditUserForm ()  {
     this.open()
     this.changeInputsValue()
     this.validation(this.form)
   }
 
-  createAddCardForm = () => {
+  createAddCardForm () {
     this.form.reset()
     this.open()
     this.validation(this.form)
   }
 
-  changeInputsValue = () => {
+  changeInputsValue () {
     this.form.name.value = document.querySelector('.user-info__name').textContent;
     this.form.about.value = document.querySelector('.user-info__job').textContent;
   }

@@ -3,7 +3,7 @@ class PopupImg extends Popup {
     super(popup)
   }
 
-  createPopup = (picture) => {
+  createPopup (picture) {
     this.background = this.popup.querySelector('.popup-img__background')
     this.background.src = picture
     this.open()

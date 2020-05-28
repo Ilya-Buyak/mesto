@@ -2,12 +2,12 @@ class FormValidator {
   constructor(form) {
     this.form = form
   }
-  resetErrors = () => {
+  resetErrors () {
     this.inputs = Array.from(this.form.querySelectorAll('input'))
     this.inputs.forEach((element) => { element.nextElementSibling.textContent = ''});
   }
 
-  checkInputValidity = (elementInput) => {
+  checkInputValidity (elementInput) {
     const errorText = 'Это обязательное поле';
     const errorLengthText = 'Должно быть от 2 до 30 символов';
     const errorLinkText = 'Здесь должна быть ссылка';
@@ -30,12 +30,12 @@ class FormValidator {
     return true
   }
 
-  handleValidate = (event)  => {
+  handleValidate (event) {
     this.checkInputValidity(event.target)
     this.setSubmitButtonState()
   }
 
-  setSubmitButtonState = () => {
+  setSubmitButtonState () {
     let isValidForm = true;
     this.inputs = Array.from(this.form.querySelectorAll('input'))
     this.btn = this.form.querySelector('.button')
@@ -52,9 +52,9 @@ class FormValidator {
       this.btn.classList.add('popup__button_disabled')
     }
   }
-  formValidity = () => {
+  formValidity () {
     this.setSubmitButtonState()
     this.resetErrors()
-    this.form.addEventListener('input', this.handleValidate)
+    this.form.addEventListener('input', this.handleValidate.bind(this))
   }
 }

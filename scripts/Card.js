@@ -4,7 +4,7 @@ class Card{
     this.createPopupImg = createPopupImg
   }
 
-  create = () => {
+  create () {
     const template = document.querySelector('#card-template').content.querySelector('.place-card');
     const newCard = template.cloneNode(true);
     newCard.querySelector('.place-card__name').textContent = this.elem.name;
@@ -19,23 +19,23 @@ class Card{
     return newCard
   }
 
-  setEventListeners = () => {
-    this.likeIcon.addEventListener('click', this.like);
-    this.deleteIcon.addEventListener('click', this.remove);
+  setEventListeners () {
+    this.likeIcon.addEventListener('click', this.like.bind(this));
+    this.deleteIcon.addEventListener('click', this.remove.bind(this));
     this.picture.addEventListener('click', this.openPopup)
   }
 
-  removeEventListeners = () => {
-    this.likeIcon.removeEventListener('click', this.like);
-    this.deleteIcon.removeEventListener('click', this.remove);
+  removeEventListeners () {
+    this.likeIcon.removeEventListener('click', this.like.bind(this));
+    this.deleteIcon.removeEventListener('click', this.remove.bind(this));
     this.picture.removeEventListener('click', this.openPopup)
   }
 
-  like = () => {
+  like () {
     this.likeIcon.classList.toggle('place-card__like-icon_liked')
   }
 
-  remove = () => {
+  remove () {
     this.cardElement.remove()
     this.removeEventListeners()
   }

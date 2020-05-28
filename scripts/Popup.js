@@ -3,22 +3,22 @@ class Popup {
   constructor(popup) {
     this.popup = popup
   }
-  closeFromEsc = (event) => {
-    if (event.keyCode === 27) {
+  closeByEsc (event) {
+    if (event.key === 'Escape') {
       this.close()
     }
   }
-  setEventListeners = () => {
-    document.addEventListener('keyup', this.closeFromEsc)
-    this.popup.querySelector('.popup__close').addEventListener('click', this.close);
+  setEventListeners () {
+    document.addEventListener('keyup', this.closeByEsc.bind(this))
+    this.popup.querySelector('.popup__close').addEventListener('click', this.close.bind(this));
   }
 
-  open = () => {
+  open () {
     this.popup.classList.add('popup_is-opened')
     this.setEventListeners()
   }
 
-  close = () => {
+  close () {
     this.popup.classList.remove('popup_is-opened')
   }
 }
