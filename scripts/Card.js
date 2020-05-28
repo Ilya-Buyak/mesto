@@ -20,10 +20,13 @@ class Card{
   }
 
   setEventListeners () {
-    this.likeIcon.addEventListener('click', this.like.bind(this),false);
-    this.likeIcon.addEventListener('touchend', this.like.bind(this),false);
-    this.deleteIcon.addEventListener('click', this.remove.bind(this));
-    this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
+    if (window.innerWidth > 768) {
+      this.likeIcon.addEventListener('click', this.like.bind(this),false);
+      this.deleteIcon.addEventListener('click', this.remove.bind(this));
+    } else {
+      this.likeIcon.addEventListener('touchend', this.like.bind(this),false);
+      this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
+    }
     this.picture.addEventListener('click', this.openPopup)
   }
 
@@ -35,13 +38,11 @@ class Card{
     this.picture.removeEventListener('click', this.openPopup)
   }
 
-  like (event) {
-    event.preventDefault()
+  like () {
     this.likeIcon.classList.toggle('place-card__like-icon_liked')
   }
 
-  remove (event) {
-    event.preventDefault()
+  remove () {
     this.cardElement.remove()
     this.removeEventListeners()
   }
