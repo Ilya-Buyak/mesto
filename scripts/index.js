@@ -3,12 +3,13 @@
   const currentJob = document.querySelector('.user-info__job');
   const openNewCardPopup = document.querySelector('.user-info__button');
   const openUserPopup = document.querySelector('.user-info__edit-button');
-  const userInfo = new UserInfo(currentName,currentJob)
-  const popupImg =  new PopupImg(document.querySelector('#img-popup'))
-  const editUserPopup = new PopupWithForm(document.querySelector('#edit-user-info'),formValidator)
   const editUserForm = document.querySelector('#edit-user-info form')
-  const newCardPopup = new PopupWithForm(document.querySelector('#add-new-card'),formValidator)
   const newCardForm = document.querySelector('#add-new-card form')
+  const userInfo = new UserInfo(currentName,currentJob)
+
+  const popupImg = () => new PopupImg(document.querySelector('#img-popup'))
+  const newCardPopup = () => new PopupWithForm(document.querySelector('#add-new-card'),formValidator)
+  const editUserPopup = () => new PopupWithForm(document.querySelector('#edit-user-info'),formValidator)
 
 
   function placesList () {
@@ -20,7 +21,7 @@
   placesList().render()
 
   function createPopupImg (pictureUrl) {
-    return popupImg.createPopup(pictureUrl)
+    return popupImg().createPopup(pictureUrl)
   }
 
   function createCard (...arg) {
@@ -32,11 +33,11 @@
   }
 
   openNewCardPopup.addEventListener('click', () => {
-    newCardPopup.createAddCardForm()
+    newCardPopup().createAddCardForm()
   })
 
   openUserPopup.addEventListener('click', () => {
-    editUserPopup.createEditUserForm()
+    editUserPopup().createEditUserForm()
   })
 
   newCardForm.addEventListener('submit',(event) => {
@@ -46,7 +47,7 @@
       link: newCardForm.link.value
     }
     placesList().addCard(card)
-    newCardPopup.close()
+    newCardPopup().close()
   })
 
   editUserForm.addEventListener('submit', (event) => {
@@ -57,6 +58,6 @@
     }
     userInfo.setUserInfo(inputs)
     userInfo.updateUserInfo()
-    editUserPopup.close()
+    editUserPopup().close()
   })
 })()

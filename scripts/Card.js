@@ -2,6 +2,8 @@ class Card{
   constructor(elem,createPopupImg) {
     this.elem = elem
     this.createPopupImg = createPopupImg
+    this.like = this.like.bind(this)
+    this.remove = this.remove.bind(this)
   }
 
   create () {
@@ -21,21 +23,26 @@ class Card{
 
   setEventListeners () {
     if (window.innerWidth > 768) {
-      this.likeIcon.addEventListener('click', this.like.bind(this),false);
-      this.deleteIcon.addEventListener('click', this.remove.bind(this));
+      this.likeIcon.addEventListener('click', this.like);
+      this.deleteIcon.addEventListener('click', this.remove);
+      this.picture.addEventListener('click', this.openPopup)
     } else {
-      this.likeIcon.addEventListener('touchend', this.like.bind(this),false);
-      this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
+      this.likeIcon.addEventListener('touchend', this.like);
+      this.deleteIcon.addEventListener('touchend', this.remove);
+      this.picture.addEventListener('touchend', this.openPopup)
     }
-    this.picture.addEventListener('click', this.openPopup)
   }
 
   removeEventListeners () {
-    this.likeIcon.removeEventListener('click', this.like.bind(this));
-    this.likeIcon.removeEventListener('touchend', this.like.bind(this));
-    this.deleteIcon.removeEventListener('click', this.remove.bind(this));
-    this.deleteIcon.addEventListener('touchend', this.remove.bind(this));
-    this.picture.removeEventListener('click', this.openPopup)
+    if (window.innerWidth > 768) {
+      this.likeIcon.removeEventListener('click', this.like);
+      this.deleteIcon.removeEventListener('click', this.remove);
+      this.picture.removeEventListener('click', this.openPopup)
+    } else {
+      this.likeIcon.removeEventListener('touchend', this.like);
+      this.deleteIcon.removeEventListener('touchend', this.remove);
+      this.picture.removeEventListener('touchend', this.openPopup)
+    }
   }
 
   like () {

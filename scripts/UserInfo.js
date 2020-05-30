@@ -4,9 +4,9 @@ class UserInfo {
     this.job = job
   }
 
-  setUserInfo (inputs) {
-    this.name = inputs.name;
-    this.job = inputs.job;
+  setUserInfo (inputElement) {
+    this.name = inputElement.name;
+    this.job = inputElement.job;
   }
 
   updateUserInfo () {
