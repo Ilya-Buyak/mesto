@@ -1,17 +1,18 @@
 class UserInfo {
-  constructor(name, job) {
+  constructor(name, job,inputsElement) {
     this.name = name
     this.job = job
+    this.inputsElement = inputsElement
   }
 
-  setUserInfo (inputElement) {
-    this.name = inputElement.name;
-    this.job = inputElement.job;
+  setUserInfo () {
+    this.inputsElement.name.value = this.name.textContent;
+    this.inputsElement.about.value = this.job.textContent;
   }
 
   updateUserInfo () {
-    document.querySelector('.user-info__name').textContent = this.name;
-    document.querySelector('.user-info__job').textContent = this.job;
+    this.name.textContent = this.inputsElement.name.value;
+    this.job.textContent = this.inputsElement.about.value
   }
 }
 

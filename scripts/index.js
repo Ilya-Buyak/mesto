@@ -5,11 +5,11 @@
   const openUserPopup = document.querySelector('.user-info__edit-button');
   const editUserForm = document.querySelector('#edit-user-info form')
   const newCardForm = document.querySelector('#add-new-card form')
-  const userInfo = new UserInfo(currentName,currentJob)
 
+  const userInfo = () => new UserInfo(currentName,currentJob,editUserForm)
   const popupImg = () => new PopupImg(document.querySelector('#img-popup'))
-  const newCardPopup = () => new PopupWithForm(document.querySelector('#add-new-card'),formValidator)
-  const editUserPopup = () => new PopupWithForm(document.querySelector('#edit-user-info'),formValidator)
+  const newCardPopup = () => new Popup(document.querySelector('#add-new-card'))
+  const editUserPopup = () => new Popup(document.querySelector('#edit-user-info'))
 
 
   function placesList () {
@@ -33,11 +33,15 @@
   }
 
   openNewCardPopup.addEventListener('click', () => {
-    newCardPopup().createAddCardForm()
+    newCardForm.reset()
+    newCardPopup().open()
+    formValidator(newCardForm)
   })
 
   openUserPopup.addEventListener('click', () => {
-    editUserPopup().createEditUserForm()
+    userInfo().setUserInfo()
+    editUserPopup().open()
+    formValidator(editUserForm)
   })
 
   newCardForm.addEventListener('submit',(event) => {
@@ -52,12 +56,7 @@
 
   editUserForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    const inputs = {
-      name: editUserForm.name.value,
-      job: editUserForm.about.value,
-    }
-    userInfo.setUserInfo(inputs)
-    userInfo.updateUserInfo()
+    userInfo().updateUserInfo()
     editUserPopup().close()
   })
 })()

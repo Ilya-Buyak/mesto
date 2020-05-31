@@ -1,5 +1,4 @@
 class Popup {
-
   constructor(popup) {
     this.popup = popup
   }
@@ -24,5 +23,6 @@ class Popup {
 
   close () {
     this.popup.classList.remove('popup_is-opened')
+    document.removeEventListener('keyup', this.closeByEsc.bind(this))
   }
 }
