@@ -1,11 +1,11 @@
 class CardList {
-  constructor(container,card) {
+  constructor(container,createCard) {
     this.container = container;
-    this.card = card;
+    this.createCard = createCard;
   }
 
   addCard (elem,userId) {
-    this.container.appendChild(this.card(elem,userId))
+    this.container.appendChild(this.createCard(elem,userId))
   }
   render (cards,userId)  {
     cards.forEach((elem) => {

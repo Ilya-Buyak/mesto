@@ -12,7 +12,7 @@ class Api {
         if (res.ok) {
           return res.json()
         }
-        return Promise.reject(`Ошибка получения информации о пользователе: ${res.status}`);
+        return Promise.reject(`Ошибка: ${res.status}`);
       })
   }
 
@@ -24,7 +24,7 @@ class Api {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject(`Ошибка получения карточек: ${res.status}`);
+        return Promise.reject(`Ошибка: ${res.status}`);
       })
   }
 
@@ -58,7 +58,7 @@ class Api {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject(`Ошибка добавления карточки: ${res.status}`);
+        return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
 
