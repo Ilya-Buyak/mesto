@@ -1,6 +1,8 @@
 class Popup {
-  constructor(popup) {
-    this.popup = popup
+  constructor(popupElement) {
+    this.popupElement = popupElement
+    this.close = this.close.bind(this)
+    this.closeByEsc = this.closeByEsc.bind(this)
   }
   closeByEsc (event) {
     if (event.key === 'Escape') {
@@ -8,21 +10,21 @@ class Popup {
     }
   }
   setEventListeners () {
-    document.addEventListener('keyup', this.closeByEsc.bind(this))
+    document.addEventListener('keyup', this.closeByEsc)
     if (window.innerWidth > 768) {
-      this.popup.querySelector('.popup__close').addEventListener('click', this.close.bind(this),false);
+      this.popupElement.querySelector('.popup__close').addEventListener('click', this.close);
     } else {
-      this.popup.querySelector('.popup__close').addEventListener('touchend', this.close.bind(this),false);
+      this.popupElement.querySelector('.popup__close').addEventListener('touchend', this.close);
     }
   }
 
   open () {
-    this.popup.classList.add('popup_is-opened')
+    this.popupElement.classList.add('popup_is-opened')
     this.setEventListeners()
   }
 
   close () {
-    this.popup.classList.remove('popup_is-opened')
-    document.removeEventListener('keyup', this.closeByEsc.bind(this))
+    this.popupElement.classList.remove('popup_is-opened')
+    document.removeEventListener('keyup', this.closeByEsc)
   }
 }
