@@ -43,8 +43,10 @@
   function placesList () {
     return new CardList(
       document.querySelector('.places-list'),
-      createCard);
+      createCard
+    );
   }
+
   function createPopupImg (pictureUrl) {
     return popupImg().createPopup(pictureUrl)
   }
@@ -83,12 +85,12 @@
     event.preventDefault()
     newCardForm.querySelector('button').textContent = 'Загрузка...'
     api.addCard({ name: newCardForm.name.value, link: newCardForm.link.value })
-      .then((res) => {
-        placesList().addCard(res, res.owner._id);
-      })
-      .then(() => newCardForm.querySelector('button').textContent = '+')
-      .then(newCardPopup().close)
-      .catch(err => console.log(err));
+    .then((res) => {
+      placesList().addCard(res, res.owner._id);
+    })
+    .then(() => newCardForm.querySelector('button').textContent = '+')
+    .then(newCardPopup().close)
+    .catch(err => console.log(err));
   })
 
   editUserForm.addEventListener('submit', (event) => {
@@ -102,11 +104,11 @@
     event.preventDefault()
     avatarForm.querySelector('button').textContent = 'Загрузка...'
     api.editAvatar(avatarForm.link.value)
-      .then((res) => {
-        avatar.style.backgroundImage = `url('${res.avatar}')`;
-      })
-      .then(() => avatarForm.querySelector('button').textContent = 'Сохранить')
-      .then(avatarPopup().close)
-      .catch(err => console.log(err));
+    .then((res) => {
+      avatar.style.backgroundImage = `url('${res.avatar}')`;
+    })
+    .then(() => avatarForm.querySelector('button').textContent = 'Сохранить')
+    .then(avatarPopup().close)
+    .catch(err => console.log(err));
   })
 })()
