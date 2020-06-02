@@ -68,8 +68,7 @@ class Card {
   like (event) {
     event.stopPropagation()
 
-    if (this.likeIcon.classList.contains('place-card__like-icon') &&
-      !(this.likeIcon.classList.contains('place-card__like-icon_liked'))) {
+    if (!(this.likeIcon.classList.contains('place-card__like-icon_liked'))) {
       this.api.likeCard(this.cardElement, 'PUT')
         .then(res => {
           this.likeIcon.classList.add('place-card__like-icon_liked');
