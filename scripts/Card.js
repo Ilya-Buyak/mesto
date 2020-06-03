@@ -12,8 +12,8 @@ class Card {
     const template = document.querySelector('#card-template').content.querySelector('.place-card');
     const newCard = template.cloneNode(true);
     this.cardElement = newCard;
-    this.likeIcon = this.cardElement.querySelector('.place-card__like-icon')
     this.deleteIcon = this.cardElement.querySelector('.place-card__delete-icon')
+    this.likeIcon = this.cardElement.querySelector('.place-card__like-icon')
     this.picture = this.cardElement.querySelector('.place-card__image')
     this.cardElement.dataset.id = this.elem._id
     this.cardElement.querySelector('.place-card__name').textContent = this.elem.name;
