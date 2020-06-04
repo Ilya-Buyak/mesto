@@ -37,7 +37,8 @@
     name: currentName,
     job: currentJob,
     editUserForm,
-    api
+    api,
+    editUserPopup
   })
 
   function placesList () {
@@ -97,7 +98,6 @@
     event.preventDefault()
     editUserForm.querySelector('button').textContent = 'Загрузка...'
     userInfo.setUserInfo()
-    editUserPopup().close()
   })
 
   avatarForm.addEventListener('submit', (event) => {
@@ -112,3 +112,19 @@
     .catch(err => console.log(err));
   })
 })()
+
+/*REVIEW. Резюме.
+
+Работа хорошая. Выполнены дополнительные задания.
+
+Функционал, требуемый по заданию работает.
+
+Что нужно исправить.
+
+1. Форма профиля (и, возможно, другие формы) при сабмите закроется раньше, чем придёт какой-либо ответ от сервера,
+а нужно, чтобы она закрылась после того, как придёт успешный ответ (подробный комментарий в файле класса UserInfo).
+
+
+
+
+*/

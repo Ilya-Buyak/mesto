@@ -12,18 +12,18 @@ class Card {
     const template = document.querySelector('#card-template').content.querySelector('.place-card');
     const newCard = template.cloneNode(true);
     this.cardElement = newCard;
-    this.deleteIcon = this.cardElement.querySelector('.place-card__delete-icon')
-    this.likeIcon = this.cardElement.querySelector('.place-card__like-icon')
-    this.picture = this.cardElement.querySelector('.place-card__image')
-    this.cardElement.dataset.id = this.elem._id
+    this.likeIcon = this.cardElement.querySelector('.place-card__like-icon');
+    this.deleteIcon = this.cardElement.querySelector('.place-card__delete-icon');
+    this.picture = this.cardElement.querySelector('.place-card__image');
+    this.cardElement.dataset.id = this.elem._id ;
     this.cardElement.querySelector('.place-card__name').textContent = this.elem.name;
-    this.likeIcon.classList.add(`${this.isLikedByMe(this.elem.likes,this.id)}`)
-    this.picture.style.backgroundImage = `url(${this.elem.link})`
+    this.likeIcon.classList.add(`${this.isLikedByMe(this.elem.likes,this.id)}`);
+    this.picture.style.backgroundImage = `url(${this.elem.link})`;
     this.picture.dataset.url = this.elem.link;
-    this.deleteIcon.style.display = `${this.isAddedByMe(this.elem,this.id)}`
+    this.deleteIcon.style.display = `${this.isAddedByMe(this.elem,this.id)}` ;
     this.cardElement.querySelector('.place-card__like-counter').textContent = this.elem.likes.length;
-    this.openPopup = () => this.createPopupImg(this.picture.dataset.url)
-    this.setEventListeners()
+    this.openPopup = () => this.createPopupImg(this.picture.dataset.url);
+    this.setEventListeners();
     return newCard
   }
 
@@ -31,7 +31,7 @@ class Card {
     if (window.innerWidth > 768) {
       this.likeIcon.addEventListener('click', this.like);
       this.deleteIcon.addEventListener('click', this.remove);
-      this.picture.addEventListener('click', this.openPopup)
+      this.picture.addEventListener('click', this.openPopup);
     } else {
       this.likeIcon.addEventListener('touchend', this.like);
       this.deleteIcon.addEventListener('touchend', this.remove);
