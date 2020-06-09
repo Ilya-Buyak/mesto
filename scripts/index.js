@@ -106,25 +106,9 @@
     api.editAvatar(avatarForm.link.value)
     .then((res) => {
       avatar.style.backgroundImage = `url('${res.avatar}')`;
+      avatarForm.querySelector('button').textContent = 'Сохранить';
+      avatarPopup().close()
     })
-    .then(() => avatarForm.querySelector('button').textContent = 'Сохранить')
-    .then(avatarPopup().close)
     .catch(err => console.log(err));
   })
 })()
-
-/*REVIEW. Резюме.
-
-Работа хорошая. Выполнены дополнительные задания.
-
-Функционал, требуемый по заданию работает.
-
-Что нужно исправить.
-
-1. Форма профиля (и, возможно, другие формы) при сабмите закроется раньше, чем придёт какой-либо ответ от сервера,
-а нужно, чтобы она закрылась после того, как придёт успешный ответ (подробный комментарий в файле класса UserInfo).
-
-
-
-
-*/
