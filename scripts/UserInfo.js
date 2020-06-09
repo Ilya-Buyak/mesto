@@ -1,18 +1,28 @@
-class UserInfo {
-  constructor(name, job,inputsElement) {
-    this.name = name
-    this.job = job
-    this.inputsElement = inputsElement
+class UserInfo{
+  constructor(obj) {
+    this.name = obj.name
+    this.job = obj.job
+    this.api = obj.api
+    this.formElement = obj.editUserForm
+    this.btn = obj.editUserForm.querySelector('button')
+    this.popup = obj.editUserPopup()
   }
 
   setUserInfo () {
-    this.inputsElement.name.value = this.name.textContent;
-    this.inputsElement.about.value = this.job.textContent;
+    this.api.editUser({ name: this.formElement.name.value, job: this.formElement.about.value })
+      .then((res) => {
+        this.updateUserInfo(res.name, res.about);
+      })
+      .then(() => {
+        this.btn.textContent = 'Сохранить';
+        this.popup.close()
+      })
+      .catch(err => console.log(err));
   }
 
-  updateUserInfo () {
-    this.name.textContent = this.inputsElement.name.value;
-    this.job.textContent = this.inputsElement.about.value
+  updateUserInfo (name, job) {
+    this.name.textContent = name;
+    this.job.textContent = job;
   }
 }
 
