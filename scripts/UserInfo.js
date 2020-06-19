@@ -1,11 +1,11 @@
 class UserInfo{
-  constructor(obj) {
-    this.name = obj.name
-    this.job = obj.job
-    this.api = obj.api
-    this.formElement = obj.editUserForm
-    this.btn = obj.editUserForm.querySelector('button')
-    this.popup = obj.editUserPopup()
+  constructor(options) {
+    this.name = options.name
+    this.job = options.job
+    this.api = options.api
+    this.formElement = options.editUserForm
+    this.btn = options.editUserForm.querySelector('button')
+    this.popup = options.editUserPopup()
   }
 
   setUserInfo () {

@@ -28,27 +28,15 @@ class Card {
   }
 
   setEventListeners () {
-    if (window.innerWidth > 768) {
       this.likeIcon.addEventListener('click', this.like);
       this.deleteIcon.addEventListener('click', this.remove);
       this.picture.addEventListener('click', this.openPopup);
-    } else {
-      this.likeIcon.addEventListener('touchend', this.like);
-      this.deleteIcon.addEventListener('touchend', this.remove);
-      this.picture.addEventListener('touchend', this.openPopup)
-    }
   }
 
   removeEventListeners () {
-    if (window.innerWidth > 768) {
       this.likeIcon.removeEventListener('click', this.like);
       this.deleteIcon.removeEventListener('click', this.remove);
       this.picture.removeEventListener('click', this.openPopup)
-    } else {
-      this.likeIcon.removeEventListener('touchend', this.like);
-      this.deleteIcon.removeEventListener('touchend', this.remove);
-      this.picture.removeEventListener('touchend', this.openPopup)
-    }
   }
 
   isLikedByMe(allLikes, myId) {

@@ -1,7 +1,7 @@
 class CardList {
-  constructor(container,createCard) {
-    this.container = container;
-    this.createCard = createCard;
+  constructor(options) {
+    this.container = options.container;
+    this.createCard = options.createCard;
   }
 
   addCard (elem,userId) {

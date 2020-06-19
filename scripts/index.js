@@ -42,9 +42,9 @@
   })
 
   function placesList () {
-    return new CardList(
-      document.querySelector('.places-list'),
-      createCard
+    return new CardList( {
+      container: document.querySelector('.places-list'),
+      createCard }
     );
   }
 
@@ -87,7 +87,7 @@
     newCardForm.querySelector('button').textContent = 'Загрузка...'
     api.addCard({ name: newCardForm.name.value, link: newCardForm.link.value })
     .then((res) => {
-      placesList().addCard(res, res.owner._id);
+      placesList().addCard( res,  res.owner._id);
     })
     .then(() => newCardForm.querySelector('button').textContent = '+')
     .then(newCardPopup().close)
