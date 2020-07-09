@@ -1,4 +1,4 @@
-class UserInfo{
+export class UserInfo{
   constructor(options) {
     this.name = options.name
     this.job = options.job

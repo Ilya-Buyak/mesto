@@ -1,4 +1,4 @@
-class Card {
+export class Card {
   constructor(elem,id,api,createPopupImg) {
     this.elem = elem
     this.createPopupImg = createPopupImg

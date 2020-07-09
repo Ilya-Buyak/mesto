@@ -1,3 +1,12 @@
+import "./style.css";
+import {Api} from "./scripts/Api"
+import {Card} from "./scripts/Card";
+import {CardList} from "./scripts/CardList";
+import {FormValidator} from "./scripts/FormValidator";
+import {Popup} from "./scripts/Popup";
+import {PopupImg} from "./scripts/PopupImg";
+import {UserInfo} from "./scripts/UserInfo";
+
 (function () {
   const avatar = document.querySelector('.user-info__photo')
   const avatarForm = document.querySelector('#edit-user-avatar form')
