@@ -15,3 +15,18 @@ HTML/CSS, JavaScript, Webpack
 * Удаление своей карточки
 ## Версия: 
 1.0.0
+## Project setup
+### install dependencies
+```
+npm install
+```
+
+### serve with hot reload at localhost
+```
+npm run dev
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
