@@ -15,18 +15,26 @@ HTML/CSS, JavaScript, Webpack
 * Удаление своей карточки
 ## Версия: 
 1.0.0
-## Project setup
-### install dependencies
+## Инструкция по установке проекта
+### склонировать репозиторий
+```
+git clone https://github.com/Ilya-Buyak/mesto.git
+```
+### установить зависимости
 ```
 npm install
 ```
 
-### serve with hot reload at localhost
+### запустить проект в режиме разработчика
 ```
 npm run dev
 ```
 
-### Compiles and minifies for production
+### собрать проект
 ```
 npm run build
+```
+### добавить проект на GitHub Pages
+```
+npm run deploy
 ```
