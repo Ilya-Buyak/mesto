@@ -25,7 +25,7 @@ git clone https://github.com/Ilya-Buyak/mesto.git
 npm install
 ```
 
-### запустить проект в режиме разработчика
+### запустить проект в режиме разработки
 ```
 npm run dev
 ```
