@@ -16,6 +16,7 @@ import {UserInfo} from "./scripts/UserInfo";
   const openUserPopup = document.querySelector('.user-info__edit-button');
   const editUserForm = document.querySelector('#edit-user-info form')
   const newCardForm = document.querySelector('#add-new-card form')
+  const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort11' : 'https://praktikum.tk/cohort11'
 
 
   const popupImg = () => new PopupImg(document.querySelector('#img-popup'))
@@ -25,7 +26,7 @@ import {UserInfo} from "./scripts/UserInfo";
 
 
   const api = new Api({
-    baseUrl: 'https://praktikum.tk/cohort11',
+    baseUrl: serverUrl,
     headers: {
       authorization: '46b85523-a3a1-423c-b097-4274578b9eb9',
       'Content-Type': 'application/json'
