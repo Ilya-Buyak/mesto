@@ -1,4 +1,5 @@
-class PopupImg extends Popup {
+import {Popup} from './Popup'
+export class PopupImg extends Popup {
   constructor(popupElement) {
     super(popupElement)
   }

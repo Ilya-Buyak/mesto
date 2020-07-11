@@ -1,3 +1,12 @@
+import "./style.css";
+import {Api} from "./scripts/Api"
+import {Card} from "./scripts/Card";
+import {CardList} from "./scripts/CardList";
+import {FormValidator} from "./scripts/FormValidator";
+import {Popup} from "./scripts/Popup";
+import {PopupImg} from "./scripts/PopupImg";
+import {UserInfo} from "./scripts/UserInfo";
+
 (function () {
   const avatar = document.querySelector('.user-info__photo')
   const avatarForm = document.querySelector('#edit-user-avatar form')
@@ -7,6 +16,7 @@
   const openUserPopup = document.querySelector('.user-info__edit-button');
   const editUserForm = document.querySelector('#edit-user-info form')
   const newCardForm = document.querySelector('#add-new-card form')
+  const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort11' : 'https://praktikum.tk/cohort11'
 
 
   const popupImg = () => new PopupImg(document.querySelector('#img-popup'))
@@ -16,7 +26,7 @@
 
 
   const api = new Api({
-    baseUrl: 'https://praktikum.tk/cohort11',
+    baseUrl: serverUrl,
     headers: {
       authorization: '46b85523-a3a1-423c-b097-4274578b9eb9',
       'Content-Type': 'application/json'
@@ -42,9 +52,9 @@
   })
 
   function placesList () {
-    return new CardList(
-      document.querySelector('.places-list'),
-      createCard
+    return new CardList( {
+      container: document.querySelector('.places-list'),
+      createCard }
     );
   }
 
@@ -87,7 +97,7 @@
     newCardForm.querySelector('button').textContent = 'Загрузка...'
     api.addCard({ name: newCardForm.name.value, link: newCardForm.link.value })
     .then((res) => {
-      placesList().addCard(res, res.owner._id);
+      placesList().addCard( res,  res.owner._id);
     })
     .then(() => newCardForm.querySelector('button').textContent = '+')
     .then(newCardPopup().close)

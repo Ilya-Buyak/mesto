@@ -2,3 +2,5 @@
 .AppleDouble
 .LSDverride
 .idea
+/dist
+/node_modules
