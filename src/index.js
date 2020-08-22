@@ -16,7 +16,7 @@ import {UserInfo} from "./scripts/UserInfo";
   const openUserPopup = document.querySelector('.user-info__edit-button');
   const editUserForm = document.querySelector('#edit-user-info form')
   const newCardForm = document.querySelector('#add-new-card form')
-  const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort11' : 'https://praktikum.tk/cohort11'
+  const serverUrl = 'https://nomoreparties.co/cohort11'
 
 
   const popupImg = () => new PopupImg(document.querySelector('#img-popup'))
